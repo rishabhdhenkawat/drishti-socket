@@ -1,11 +1,11 @@
 import socket
 
 HEADER = 64
-PORT = 12073
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "!DISCONNECT"
-SERVER = "6.tcp.ngrok.io"
-ADDR = (SERVER, PORT)
+HOST = '0.0.0.0'  # The server's hostname or IP address
+PORT = 5050
+ADDR = (HOST, PORT)
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(ADDR)
@@ -20,15 +20,15 @@ def send(msg):
     print(client.recv(2048).decode(FORMAT))
 
 
+
 while True:
     print("[ 1 ] for face recognition")
     print("[ 2 ] for detection")
     print("[ 1(name) ] to speak name")
-    print("[ 00 ] to disagree with name in recognition")
-    print("[ 01 ] to confirm name in recognition")
     print("[ 2(name) ] to speak name of person standing in front of you")
     print("[ unk ] to tell unknown is standing")
     print("[ ocr ] to tell text is detected")
     s=str(input("Enter value 1 or 2: "))
     send(s)
-    send(DISCONNECT_MESSAGE)
+    
+send(DISCONNECT_MESSAGE)  
