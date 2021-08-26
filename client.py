@@ -3,8 +3,8 @@ import socket
 HEADER = 64
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "!DISCONNECT"
-HOST = '0.0.0.0'  # The server's hostname or IP address
-PORT = 5050
+HOST = '0.tcp.ngrok.io'  # The server's hostname or IP address
+PORT = 16176    
 ADDR = (HOST, PORT)
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
